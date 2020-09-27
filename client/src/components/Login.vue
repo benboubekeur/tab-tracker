@@ -8,7 +8,7 @@
             <v-col cols="10" md="6">
                 <div class="white elevation-2">
                     <v-toolbar flat dense class="cyan" dark>
-                        <v-toolbar-title>Register</v-toolbar-title>
+                        <v-toolbar-title>Login</v-toolbar-title>
                     </v-toolbar>
                     <v-row  align="center" justify="center">
                         <v-col cols="11" md="4">
@@ -22,13 +22,13 @@
                                           placeholder="Password : ">
                             </v-text-field>
                         </v-col>
-                            <br>
-                            <br>
-                            <div class="error" v-html="error"/>
-                      <v-col cols="12" md="4">
+                        <br>
+                        <br>
+                        <div class="error" v-html="error"/>
+                        <v-col cols="12" md="4">
 
-                      <v-btn class="cyan" name="register" @click="register">Register</v-btn>
-                      </v-col>
+                            <v-btn class="cyan" name="register" @click="login">Login</v-btn>
+                        </v-col>
                     </v-row>
 
                 </div>
@@ -42,7 +42,7 @@
 import AuthenticationService from '@/services/AuthenticationService'
 
 export default {
-  name: 'Register',
+  name: 'Login',
   data () {
     return {
       email: '',
@@ -51,9 +51,9 @@ export default {
     }
   },
   methods: {
-    async register () {
+    async login () {
       try {
-        await AuthenticationService.register({
+        await AuthenticationService.login({
           email: this.email,
           password: this.password
         })
