@@ -11,13 +11,13 @@
                         <v-toolbar-title>Login</v-toolbar-title>
                     </v-toolbar>
                     <v-row  align="center" justify="center">
-                        <v-col cols="11" md="4">
+                        <v-col cols="11">
                             <v-text-field type="email" name="email" v-model="email" id="email"
                                           label="Email :"></v-text-field>
                         </v-col>
                         <br>
                         <br>
-                        <v-col cols="11" md="4">
+                        <v-col cols="11">
                             <v-text-field type="password" name="password" v-model="password" id="password"
                                           placeholder="Password : ">
                             </v-text-field>
