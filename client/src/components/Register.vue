@@ -10,6 +10,9 @@
                     <v-toolbar flat dense class="cyan" dark>
                         <v-toolbar-title>Register</v-toolbar-title>
                     </v-toolbar>
+                    <form>
+                        name="tab-tracker-form"
+                        autocomplete="off" >
                     <v-row  align="center" justify="center">
                         <v-col cols="11" md="4">
                             <v-text-field type="email" name="email" v-model="email" id="email"
@@ -19,7 +22,7 @@
                         <br>
                         <v-col cols="11" md="4">
                             <v-text-field type="password" name="password" v-model="password" id="password"
-                                          placeholder="Password : ">
+                                          placeholder="Password : " autocomplete="new-password">
                             </v-text-field>
                         </v-col>
                             <br>
@@ -30,6 +33,7 @@
                       <v-btn class="cyan" name="register" @click="register">Register</v-btn>
                       </v-col>
                     </v-row>
+                    </form>
 
                 </div>
             </v-col>
@@ -53,10 +57,12 @@ export default {
   methods: {
     async register () {
       try {
-        await AuthenticationService.register({
+        const response = await AuthenticationService.register({
           email: this.email,
           password: this.password
         })
+        await this.$store.dispatch('setToken', response.data.token)
+        await this.$store.dispatch('setUser', response.data.user)
       } catch (error) {
         this.error = error.response.data.error
       }
