@@ -22,13 +22,8 @@
 </template>
 
 <script>
-import Panel from '@/components/Panel'
-
 export default {
   name: 'SongMetadata',
-  components: {
-    Panel
-  },
   props: [
     'song'
   ],

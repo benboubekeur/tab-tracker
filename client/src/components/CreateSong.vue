@@ -39,14 +39,10 @@
 </template>
 
 <script>
-import Panel from '@/components/Panel'
 import SongServices from '@/services/SongsService'
 
 export default {
   name: 'CreateSong',
-  components: {
-    Panel
-  },
   data () {
     return {
       song: {
