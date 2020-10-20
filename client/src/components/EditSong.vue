@@ -1,6 +1,6 @@
 <template>
-    <v-layout>
-        <v-flex xs4>
+    <v-layout justify-center>
+        <v-flex xs4 mr-5>
             <panel title="Song Metadata">
                 <v-text-field
                         label="Title"
@@ -46,23 +46,25 @@
             </panel>
         </v-flex>
 
-        <v-flex xs8>
+        <v-flex xs4>
             <panel title="Song Structure" class="ml-2">
-                <v-text-field
+                <v-textarea
                         label="Tab"
                         multi-line
+                        auto-grow
                         required
                         :rules="[required]"
                         v-model="song.tab"
-                ></v-text-field>
+                ></v-textarea>
 
-                <v-text-field
+                <v-textarea
                         label="Lyrics"
                         multi-line
                         required
+                        auto-grow
                         :rules="[required]"
-                        v-model="song.lyrics"
-                ></v-text-field>
+                        v-model="song.lyrics">
+                 </v-textarea>
             </panel>
 
             <div class="danger-alert" v-if="error">

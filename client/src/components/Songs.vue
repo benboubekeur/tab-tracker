@@ -68,6 +68,7 @@ export default {
     }
   },
   async created () {
+    /* eslint-disable */
     await SongsService.index()
       .then((response) => this.songs = response.data)
   }

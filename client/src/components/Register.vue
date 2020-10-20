@@ -10,7 +10,7 @@
                     <v-toolbar flat dense class="cyan" dark>
                         <v-toolbar-title>Register</v-toolbar-title>
                     </v-toolbar>
-                    <form>
+                    <form
                         name="tab-tracker-form"
                         autocomplete="off" >
                     <v-row  align="center" justify="center">

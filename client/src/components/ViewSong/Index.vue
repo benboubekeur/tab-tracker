@@ -44,6 +44,7 @@ export default {
     }
   },
   async  created () {
+    /* eslint-disable */
     const songId = this.$store.state.route.params.songId
     await SongsService.show(songId).then((response) => this.song = response.data)
   }

@@ -12,7 +12,6 @@
                     {{song.genre}}
                 </div>
             </v-flex>
-
             <v-flex xs6>
                 <img class="album-image" :src="song.albumImage" />
                 <br>
