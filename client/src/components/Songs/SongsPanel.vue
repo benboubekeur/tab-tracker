@@ -17,7 +17,7 @@
 
         <div
                 v-for="song in songs"
-                class="song"
+                class="song  mb-2"
                 :key="song.id">
 
             <v-layout>
@@ -49,6 +49,7 @@
                     <img class="album-image" :src="song.albumImage" />
                 </v-flex>
             </v-layout>
+            <v-divider></v-divider>
         </div>
     </panel>
 </template>
@@ -67,6 +68,14 @@ export default {
     /* eslint-disable */
     await SongsService.index()
       .then((response) => this.songs = response.data)
+  },
+    watch: {
+    '$route.query.search': {
+      immediate: true,
+      async handler (value) {
+        this.songs = (await SongsService.index(value)).data
+      }
+    }
   }
 }
 </script>
