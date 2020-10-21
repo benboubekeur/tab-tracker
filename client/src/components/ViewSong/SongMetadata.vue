@@ -47,8 +47,10 @@ export default {
   computed: {
     ...mapState(["isUserLoggedIn"])
   },
-  async mounted(){
-      try {
+  async mounted(){},
+  watch: {
+      async song (){
+           try {
         await BookmarksService.index({
           songId: this.song.id,
           userId : this.$store.state.user.id
@@ -60,8 +62,8 @@ export default {
       } catch (err) {
         console.error(err)
       }
+      }
   },
-  watch: {},
   methods: {
     async setAsBookmark() {
        if(!this.isUserLoggedIn){
