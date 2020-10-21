@@ -4,7 +4,7 @@
             <router-link
                     class="home"
                     tag="span"
-                    :to="{name: 'songs'}">
+                    :to="{name: 'root'}">
                 TabTracker
             </router-link>
         </v-toolbar-title>

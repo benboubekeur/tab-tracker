@@ -24,9 +24,10 @@
                         </v-col>
                         <br>
                         <br>
-                        <div class="error" v-html="error"/>
+                        <v-col cols="12">
+                          <div class="danger-alert" v-html="error"/>
+                        </v-col>
                         <v-col cols="12" md="4">
-
                             <v-btn class="cyan" name="register" @click="login">Login</v-btn>
                         </v-col>
                     </v-row>
@@ -66,8 +67,3 @@ export default {
   }
 }
 </script>
-<style scoped>
-    .error {
-        color: red;
-    }
-</style>
