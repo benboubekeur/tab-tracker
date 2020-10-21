@@ -11,7 +11,7 @@ module.exports = {
         songs = await Song.findAll({
           where: {
             [Op.or]: [
-              'title', 'artiste', 'genre', 'album'
+              'title', 'artist', 'genre', 'album'
             ].map(key => ({
               [key]: {
                 [Op.like]: `%${search}%`

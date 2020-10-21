@@ -49,32 +49,35 @@
 </template>
 
 <script>
-import AuthenticationService from "@/services/AuthenticationService";
+import AuthenticationService from '@/services/AuthenticationService'
 
 export default {
-  name: "Register",
-  data() {
+  name: 'Register',
+  data () {
     return {
-      email: "",
-      password: "",
+      email: '',
+      password: '',
       error: null
-    };
+    }
   },
   methods: {
-    async register() {
+    async register () {
       try {
         const response = await AuthenticationService.register({
           email: this.email,
           password: this.password
-        });
-        await this.$store.dispatch("setToken", response.data.token);
-        await this.$store.dispatch("setUser", response.data.user);
+        })
+        await this.$store.dispatch('setToken', response.data.token)
+        await this.$store.dispatch('setUser', response.data.user)
+        this.$router.push({
+          name: 'songs'
+        })
       } catch (error) {
-        this.error = error.response.data.error;
+        this.error = error.response.data.error
       }
     }
   }
-};
+}
 </script>
 <style scoped>
 .error {
