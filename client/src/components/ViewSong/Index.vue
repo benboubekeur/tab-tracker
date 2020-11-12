@@ -14,7 +14,6 @@
             <v-flex xs6>
                 <tab :song="song" />
             </v-flex>
-
             <v-flex xs6 class="ml-2">
                 <lyrics :song="song" />
             </v-flex>

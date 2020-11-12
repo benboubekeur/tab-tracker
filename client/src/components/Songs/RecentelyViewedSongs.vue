@@ -17,11 +17,11 @@ export default {
       headers: [
         {
           text: 'Title',
-          value: 'title'
+          value: 'Song.title'
         },
         {
           text: 'Artist',
-          value: 'artist'
+          value: 'Song.artist'
         }
       ],
       histories: []
@@ -35,7 +35,7 @@ export default {
   },
   async mounted () {
     if (this.isUserLoggedIn) {
-      await SongHistoryService.index()
+      await SongHistoryService.index({userId: this.user.id})
         .then((response) => { this.histories = response.data })
     }
   }
