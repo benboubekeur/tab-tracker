@@ -14,7 +14,7 @@
 
         <v-btn
           dark
-          class="cyan"
+          class="cyan mb-2"
           :to="{
             name: 'song-edit',
             params () {

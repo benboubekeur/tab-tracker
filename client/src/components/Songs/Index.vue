@@ -11,28 +11,27 @@
 </template>
 
 <script>
-import SongsPanel from './SongsPanel';
-import SongsSearch from './SongsSearch';
-import SongsBookmarks from './SongsBookmarks';
-import SongsService from '@/services/SongsService';
+import SongsPanel from './SongsPanel'
+import SongsSearch from './SongsSearch'
+import SongsBookmarks from './SongsBookmarks'
+import SongsService from '@/services/SongsService'
 
 export default {
-  name: "Songs",
+  name: 'Songs',
   components: {
     SongsPanel,
     SongsSearch,
     SongsBookmarks
   },
-  data() {
+  data () {
     return {
       songs: null
-    };
+    }
   },
-  async created() {
-    /* eslint-disable */
-    await SongsService.index().then(response => (this.songs = response.data));
+  async created () {
+    await SongsService.index().then(response => (this.songs = response.data))
   }
-};
+}
 </script>
 <style scoped>
 .song {
