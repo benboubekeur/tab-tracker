@@ -13,6 +13,6 @@ cd server
 
 # After seeding the data
 email: testing@gmail.com
-password: "12345678
+password: 12345678
     
 ```
