@@ -20,6 +20,7 @@ module.exports = {
           }
         ]
       })
+
       res.send(bookmarks)
     } catch (err) {
       res.status(500).send({
@@ -51,7 +52,7 @@ module.exports = {
     } catch (err) {
       console.log(err)
       res.status(500).send({
-        error: 'an error has occured trying to create the bookmark'
+        error: 'an error has occured trying to create the bookmark '
       })
     }
   },
