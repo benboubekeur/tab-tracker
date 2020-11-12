@@ -1,10 +1,10 @@
 <template>
   <v-layout justify-space-around>
-    <v-flex xs6 class="mr-2">
+    <v-flex xs6 class="mr-2" v-if="isUserLoggedIn">
       <songs-bookmarks />
       <recentely-viewed-songs class="mt-2" />
     </v-flex>
-    <v-flex xs6>
+    <v-flex  :class="{xs6 : isUserLoggedIn, xs10 : !isUserLoggedIn}">
       <songs-search />
       <songs-panel class="mt-2" />
     </v-flex>
@@ -17,6 +17,7 @@ import SongsSearch from './SongsSearch'
 import SongsBookmarks from './SongsBookmarks'
 import RecentelyViewedSongs from './RecentelyViewedSongs'
 import SongsService from '@/services/SongsService'
+import {mapState} from 'vuex'
 
 export default {
   name: 'Songs',
@@ -30,6 +31,9 @@ export default {
     return {
       songs: null
     }
+  },
+  computed: {
+    ...mapState(['isUserLoggedIn'])
   },
   async created () {
     await SongsService.index().then(response => (this.songs = response.data))

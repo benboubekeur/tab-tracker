@@ -3,7 +3,7 @@ const { History, Song } = require('../models')
 module.exports = {
   async index (req, res) {
     try {
-      const userId = req.query.userId
+      const userId = req.user.id
       const where = {
         UserId: userId
       }
@@ -29,7 +29,9 @@ module.exports = {
   },
   async post (req, res) {
     try {
-      const { songId, userId } = req.body
+      const { songId } = req.body
+      const userId = req.user.id
+
       const history = await History.findOne({
         where: {
           SongId: songId,

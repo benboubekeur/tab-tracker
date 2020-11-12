@@ -28,14 +28,11 @@ export default {
     }
   },
   computed: {
-    ...mapState([
-      'isUserLoggedIn',
-      'user'
-    ])
+    ...mapState(['isUserLoggedIn'])
   },
   async mounted () {
     if (this.isUserLoggedIn) {
-      await SongHistoryService.index({userId: this.user.id})
+      await SongHistoryService.index()
         .then((response) => { this.histories = response.data })
     }
   }

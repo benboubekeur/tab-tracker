@@ -5,7 +5,7 @@ module.exports = {
   async index (req, res) {
     try {
       const songId = req.query.songId
-      const userId = req.query.userId
+      const userId = req.user.id
       const where = {
         UserId: userId
       }
@@ -30,8 +30,7 @@ module.exports = {
   },
   async post (req, res) {
     try {
-      console.log('body ', req.body)
-      const userId = req.body.params.userId
+      const userId = req.user.id
       const songId = req.body.params.songId
       const bookmark = await Bookmark.findOne({
         where: {
@@ -58,11 +57,10 @@ module.exports = {
   },
   async destroy (req, res) {
     try {
-      console.log('ID ', req.params.bookmarkId)
       const bookmark = await Bookmark.findOne({
         where: {
           id: req.params.bookmarkId,
-          UserId: 1
+          UserId: req.user.id
         }
       })
       if (!bookmark) {

@@ -45,7 +45,6 @@ export default {
   computed: {
     ...mapState([
       'isUserLoggedIn',
-      'user',
       'route'
     ])
   },
@@ -54,10 +53,7 @@ export default {
     await SongsService.show(songId).then((response) => { this.song = response.data })
 
     if (this.isUserLoggedIn) {
-      SongHistoryService.post({
-        songId: songId,
-        userId: this.user.id
-      })
+      SongHistoryService.post({songId: songId})
     }
   }
 }
